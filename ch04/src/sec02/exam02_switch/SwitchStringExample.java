@@ -17,5 +17,6 @@ public class SwitchStringExample {
 		default:
 			System.out.println("300만원");
 		}
+		scan.close();
 	}
 }

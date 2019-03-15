@@ -10,7 +10,7 @@ public class SignOperatorExample {
 
 		short s = 100;
 		short result3 = (short)-s;  //컴파일 에러 
-		int result4 = -s; 
+		int result4 = result3; 
 		System.out.println("result4 = " + result4);
 	}
 }
