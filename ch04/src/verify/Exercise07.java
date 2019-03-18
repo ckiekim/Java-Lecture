@@ -15,16 +15,29 @@ public class  Exercise07 {
 			System.out.println("-----------------------------------");
 			System.out.print("선택> ");
 			
-			int menuNum = Integer.parseInt(scan.nextLine());
+			int menuNum;
+			try {
+				menuNum = Integer.parseInt(scan.nextLine());
+			} catch (NumberFormatException e1) {
+				continue;
+			}
 			
 			switch(menuNum) {
 				case 1:
 					System.out.print("예금액> ");
-					balance += Integer.parseInt(scan.nextLine());
+					try {
+						balance += Integer.parseInt(scan.nextLine());
+					} catch (NumberFormatException e) {
+						System.out.println("금액을 올바르게 입력하세요.");
+					}
 					break;
 				case 2:
 					System.out.print("출금액> ");
-					balance -= Integer.parseInt(scan.nextLine());
+					try {
+						balance -= Integer.parseInt(scan.nextLine());
+					} catch (NumberFormatException e) {
+						System.out.println("금액을 올바르게 입력하세요.");
+					}
 					break;
 				case 3:
 					System.out.print("잔고: ");
