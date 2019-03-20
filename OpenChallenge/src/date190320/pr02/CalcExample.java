@@ -35,5 +35,6 @@ public class CalcExample {
 		default:
 			System.out.println("+, -, *, / 값중의 하나만 입력하세요");
 		}
+		scan.close();
 	}
 }
