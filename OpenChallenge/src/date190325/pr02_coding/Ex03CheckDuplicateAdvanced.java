@@ -3,18 +3,19 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+// 입력을 한 줄에 여러개(갯수 제한 없음) 받아서 처리
 public class Ex03CheckDuplicateAdvanced {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		String[] numbers = new String[10];
-		boolean[] results = new boolean[10];
-		
 		System.out.print("숫자 입력: ");
 		String line = scan.nextLine();
+		scan.close();
+		
 		StringTokenizer st = new StringTokenizer(line, " ");
 		int count = st.countTokens();
-		if (count > 10)
-			count = 10;
+		String[] numbers = new String[count];
+		boolean[] results = new boolean[count];
+
 		for (int i=0; i<count; i++) {
 			String str = st.nextToken();
 			numbers[i] = str;
@@ -31,10 +32,7 @@ public class Ex03CheckDuplicateAdvanced {
 				results[0] = true;
 			}
 		}
-		String[] numbersCopy = Arrays.copyOf(numbers, count);
-		boolean[] resultsCopy = Arrays.copyOf(results, count);
-		
-		System.out.println(Arrays.toString(numbersCopy));
-		System.out.println(Arrays.toString(resultsCopy));
+		System.out.println(Arrays.toString(numbers));
+		System.out.println(Arrays.toString(results));
 	}
 }

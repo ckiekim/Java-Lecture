@@ -20,6 +20,13 @@ public class Ex04CountNumber {
 			int thirdDigit = i % 10;
 			counts[firstDigit]++; counts[secondDigit]++; counts[thirdDigit]++;
 		}
+/*		for (int i=1000; i<=9999; i++) {
+			int first = i / 1000;
+			int second = (i / 100) % 10;
+			int third = (i / 10) % 10;
+			int fourth = i % 10;
+			counts[first]++; counts[second]++; counts[third]++; counts[fourth]++;
+		}*/
 		counts[1]++; counts[0] += 3; 	// 1000
 		
 		System.out.println(Arrays.toString(counts));
