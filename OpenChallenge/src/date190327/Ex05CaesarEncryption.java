@@ -8,7 +8,7 @@ public class Ex05CaesarEncryption {
 		String str = scan.nextLine();
 		String[] tmp = str.split(" ");
 		int number = Integer.parseInt(tmp[1]);
-		str = makeCaesarEncryption(tmp[0], number);
+		str = makeCaesarEncryption(tmp[0].toUpperCase(), number);
 		System.out.println(str);
 		scan.close();
 	}
@@ -17,7 +17,7 @@ public class Ex05CaesarEncryption {
 		byte[] plain = str.getBytes();
 		byte[] crypt = new byte[str.length()];
 		for (int i=0; i<str.length(); i++) {
-			if (plain[i] + number <= 90) 
+			if (plain[i] + number <= 90) 			// 'Z' = 90
 				crypt[i] = (byte)(plain[i] + number);
 			else
 				crypt[i] = (byte)(plain[i] + number - 26);
