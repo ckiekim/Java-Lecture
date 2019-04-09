@@ -40,11 +40,14 @@ public class Ex02Member implements Comparable {
 	
 	@Override
 	public int compareTo(Object o) {
-		Ex02Member m = (Ex02Member)o;
-		if (this.age > m.age)
-			return 1;
-		if (this.age < m.age)
-			return -1;
-		return 0;
+		if (o instanceof Ex02Member) {
+			Ex02Member m = (Ex02Member)o;
+			if (this.age > m.age)
+				return 1;
+			if (this.age < m.age)
+				return -1;
+			return 0;
+		}
+		return 100;
 	}
 }
