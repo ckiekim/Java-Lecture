@@ -1,6 +1,6 @@
 package date190408;
 
-public class Ex02Member implements Comparable {
+public class Ex02Member implements Comparable<Ex02Member> {
 	private String name;
 	private String id;
 	private String password;
@@ -39,15 +39,11 @@ public class Ex02Member implements Comparable {
 	}
 	
 	@Override
-	public int compareTo(Object o) {
-		if (o instanceof Ex02Member) {
-			Ex02Member m = (Ex02Member)o;
-			if (this.age > m.age)
-				return 1;
-			if (this.age < m.age)
-				return -1;
-			return 0;
-		}
-		return 100;
+	public int compareTo(Ex02Member m) {
+		if (this.age > m.age)
+			return 1;
+		if (this.age < m.age)
+			return -1;
+		return 0;
 	}
 }
