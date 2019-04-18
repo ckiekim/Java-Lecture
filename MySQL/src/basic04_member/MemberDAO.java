@@ -46,6 +46,37 @@ public class MemberDAO {
 		}	
     }
     
+    public void initPassword() {
+    	List<MemberDTO> mList = selectAll();
+    	for (MemberDTO member: mList) {
+    		int id = member.getId();
+    		String plainPassword = member.getPassword();
+    		String hashedPassword = BCrypt.hashpw(plainPassword, BCrypt.gensalt());
+    		updatePassword(id, hashedPassword);
+    	}
+    }
+    
+    public void updatePassword(int id, String hashed) {
+    	String query = "update member set hashed=? where id=?;";
+    	PreparedStatement pStmt = null;
+    	try {
+			pStmt = conn.prepareStatement(query);
+			pStmt.setString(1, hashed);
+			pStmt.setInt(2, id);
+			
+			pStmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pStmt != null && !pStmt.isClosed()) 
+					pStmt.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			}
+		}	
+    }
+    
     public void updateMember(MemberDTO member) {
     	String query = "update member set password=?, name=?, birthday=?, address=? where id=?;";
     	PreparedStatement pStmt = null;
